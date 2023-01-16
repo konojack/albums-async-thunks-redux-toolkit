@@ -4,7 +4,7 @@ const { usersReducer } = require('./slices/usersSlice');
 export const apiDomain =
   process.env.NODE_ENV === 'development'
     ? 'http://localhost:3005'
-    : 'https://stronkaJakas.pl';
+    : 'https://users-albums-photos-server-async-thunks-1.vercel.app';
 
 export const store = configureStore({
   reducer: {
@@ -13,3 +13,4 @@ export const store = configureStore({
 });
 
 export * from './thunks/fetchUsers';
+export * from './thunks/addUser';
