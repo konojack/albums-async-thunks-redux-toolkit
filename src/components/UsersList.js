@@ -1,34 +1,25 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { addUser, fetchUsers } from '../store';
 import Skeleton from './Skeleton';
 import Button from './Button';
+import useThunk from '../hooks/useThunk';
 
 const UsersList = () => {
-  const [isLoadingUsers, setIsLoadingUsers] = useState(false);
-  const [loadingUsersError, setLoadingUsersError] = useState(null);
-  const [isCreatingUser, setIsCreatingUser] = useState(false);
-  const [creatingUserError, setCreatingUserError] = useState(null);
-  const dispatch = useDispatch();
+  const [doFetchUsers, isLoadingUsers, loadingUsersError] =
+    useThunk(fetchUsers);
+  const [createUser, isCreatingUser, creatingUserError] = useThunk(addUser);
 
-  const { data: users } = useSelector(state => {
+  const { data: users } = useSelector((state) => {
     return state.users;
   });
 
   useEffect(() => {
-    setIsLoadingUsers(true);
-    dispatch(fetchUsers())
-      .unwrap()
-      .catch(err => setLoadingUsersError(err))
-      .finally(() => setIsLoadingUsers(false));
-  }, [dispatch]);
+    doFetchUsers();
+  }, [doFetchUsers]);
 
   const handleUserAdd = () => {
-    setIsCreatingUser(true);
-    dispatch(addUser())
-      .unwrap()
-      .catch(err => setCreatingUserError(err))
-      .finally(() => setIsCreatingUser(false));
+    createUser();
   };
 
   if (isLoadingUsers) {
@@ -43,7 +34,7 @@ const UsersList = () => {
     return <div>Error fetching data...</div>;
   }
 
-  const renderedUsers = users.map(user => {
+  const renderedUsers = users.map((user) => {
     return (
       <div key={user.id} className="mb-2 border rounded">
         <div className="flex p-2 justify-between items-center cursor-pointer">
