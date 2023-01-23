@@ -37,6 +37,12 @@
       "id": 22
     }
   ],
-  "albums": [],
+  "albums": [
+    {
+      "id": "10",
+      "title": "New Album",
+      "userId": "1"
+    }
+  ],
   "photos": []
 }
