@@ -1,5 +1,10 @@
 import { useEffect } from 'react';
-import { useAddAlbumMutation, useFetchAlbumsQuery } from '../store';
+import {
+  useAddAlbumMutation,
+  useFetchAlbumsQuery,
+  useRemoveAlbumMutation,
+} from '../store';
+import AlbumsListItem from './AlbumsListItem';
 import Button from './Button';
 import ExtendablePanel from './ExtendablePanel';
 import Skeleton from './Skeleton';
@@ -8,6 +13,7 @@ const AlbumsList = ({ user }) => {
   const { data, error, isLoading } = useFetchAlbumsQuery(user);
 
   const [addAlbum, results] = useAddAlbumMutation();
+  const [removeAlbum, removeAlbumResults] = useRemoveAlbumMutation();
 
   const handleAddAlbum = (e) => {
     e.preventDefault();
@@ -21,12 +27,7 @@ const AlbumsList = ({ user }) => {
     content = <div>Error loading albums.</div>;
   } else {
     content = data.map((album) => {
-      const header = <div>{album.title}</div>;
-      return (
-        <ExtendablePanel key={album.id} header={header}>
-          List of photos in the album
-        </ExtendablePanel>
-      );
+      return <AlbumsListItem key={album.id} album={album} />;
     });
   }
 

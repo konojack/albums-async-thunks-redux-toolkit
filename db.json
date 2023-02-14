@@ -33,30 +33,11 @@
       "id": 21
     },
     {
-      "name": "Rolando Streich",
-      "id": 22
-    },
-    {
       "name": "Pete Turner",
       "id": 23
     }
   ],
   "albums": [
-    {
-      "id": "10",
-      "title": "New Album",
-      "userId": "1"
-    },
-    {
-      "id": "12",
-      "title": "New Album 2 Test",
-      "userId": "1"
-    },
-    {
-      "id": "13",
-      "title": "New Album 2 Testttt",
-      "userId": "1"
-    },
     {
       "userId": 1,
       "title": "Recycled Granite Sausages",
