@@ -1,3 +1,4 @@
+import { faker } from '@faker-js/faker';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 const apiDomain =
@@ -12,6 +13,7 @@ export const albumsApi = createApi({
   }),
   endpoints: (builder) => ({
     fetchAlbums: builder.query({
+      providesTags: ['Album'],
       query: (user) => ({
         url: '/albums',
         params: {
@@ -20,7 +22,18 @@ export const albumsApi = createApi({
         method: 'GET',
       }),
     }),
+    addAlbum: builder.mutation({
+      invalidatesTags: ['Album'],
+      query: (user) => ({
+        url: '/albums',
+        method: 'POST',
+        body: {
+          userId: user.id,
+          title: faker.commerce.productName(),
+        },
+      }),
+    }),
   }),
 });
 
-export const { useFetchAlbumsQuery } = albumsApi;
+export const { useFetchAlbumsQuery, useAddAlbumMutation } = albumsApi;

@@ -35,6 +35,10 @@
     {
       "name": "Rolando Streich",
       "id": 22
+    },
+    {
+      "name": "Pete Turner",
+      "id": 23
     }
   ],
   "albums": [
@@ -52,6 +56,61 @@
       "id": "13",
       "title": "New Album 2 Testttt",
       "userId": "1"
+    },
+    {
+      "userId": 1,
+      "title": "Recycled Granite Sausages",
+      "id": "f-TzyO1"
+    },
+    {
+      "userId": 1,
+      "title": "Rustic Fresh Hat",
+      "id": "28a1HPT"
+    },
+    {
+      "userId": 1,
+      "title": "Recycled Steel Sausages",
+      "id": "B3L9G6O"
+    },
+    {
+      "userId": 1,
+      "title": "Electronic Rubber Towels",
+      "id": "rHifAao"
+    },
+    {
+      "userId": 1,
+      "title": "Ergonomic Rubber Mouse",
+      "id": "aHMvfwm"
+    },
+    {
+      "userId": 1,
+      "title": "Intelligent Rubber Shoes",
+      "id": "SBkZdoa"
+    },
+    {
+      "userId": 18,
+      "title": "Modern Wooden Chair",
+      "id": "7G4f9ow"
+    },
+    {
+      "userId": 18,
+      "title": "Generic Metal Cheese",
+      "id": "4SVBfqb"
+    },
+    {
+      "userId": 18,
+      "title": "Electronic Steel Bike",
+      "id": "jvP1Gg5"
+    },
+    {
+      "userId": 17,
+      "title": "Fantastic Metal Gloves",
+      "id": "paQ9ujU"
+    },
+    {
+      "userId": 17,
+      "title": "Refined Frozen Cheese",
+      "id": "KGhs3ts"
     }
   ],
   "photos": []
