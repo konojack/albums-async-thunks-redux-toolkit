@@ -117,7 +117,18 @@
       "userId": 17,
       "title": "Sleek Rubber Chair",
       "id": "fnovXSf"
+    },
+    {
+      "userId": 16,
+      "title": "Modern Granite Bacon",
+      "id": "Ux6Pqzy"
     }
   ],
-  "photos": []
+  "photos": [
+    {
+      "albumId": "f-TzyO1",
+      "title": "Recycled Granite Sausages",
+      "id": "f-TzyO1"
+    }
+  ]
 }
