@@ -6,10 +6,21 @@ const apiDomain =
     ? 'http://localhost:3005'
     : 'https://my-json-server.typicode.com/konojack/users-albums-photos-server-async-thunks-1';
 
+const pause = (duration) => {
+  return new Promise((resolve) => {
+    setTimeout(() => resolve(1), duration);
+  });
+};
+
 export const albumsApi = createApi({
   reducerPath: 'albums',
   baseQuery: fetchBaseQuery({
     baseUrl: apiDomain,
+    fetchFn: async (...args) => {
+      //REMOVE FOR PROD
+      await pause(500);
+      return fetch(...args);
+    },
   }),
   endpoints: (builder) => ({
     fetchAlbums: builder.query({
